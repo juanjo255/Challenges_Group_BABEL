@@ -16,3 +16,6 @@ for 45°
 1 2 3     4 1 2
 4 5 6 --> 7 5 3
 7 8 9     8 9 6
+
+## Reto_densest_protein
+Build a command line utility in the language of your choice that reads a quick .faa file of protein sequences for any organism, and determines the protein with the highest density, where density is equal to Total Weight / Length. The molecular weight should be handled in g / mol. The result is a fast file with the densest sequence, with its respective header with additional field for the density.
