@@ -206,9 +206,3 @@ if angulo // 45 > 0:
   for i in range (cuantos_45):
     matriz = cuadrilandia (matriz).laterales_45 ()
     print (np.array (matriz))
-
-a = cuadrilandia (matriz).caca ()
-print (a.matriz_copia)
-#b = cuadrilandia (matriz)
-#b.caca ()
-#print (b)
