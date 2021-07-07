@@ -33,7 +33,7 @@ def densest_protein (fasta, aa_weights):
     
     write_fasta = open ("densest_protein.faa", "w")
     write_fasta.write (densest_id)
-    write_fasta.write (" "+str(density_anterior))
+    write_fasta.write (" [density="+str(density_anterior)+"]")
     write_fasta.write ("\n")
     write_fasta.write (densest_cadena)
     write_fasta.write ("\n")
