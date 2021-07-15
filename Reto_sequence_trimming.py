@@ -40,6 +40,7 @@ class trim:
             sec_len = 0
             break
             
+"Terminar"
 
 
 
