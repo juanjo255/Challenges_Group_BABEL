@@ -39,7 +39,7 @@ class trim:
             #print (id)
             #print (last_sec_len)
             #sec_len = 0
-            #break
+            break
 
 
 trim ("test_sanger.fastq").window (5, 20)
