@@ -9,7 +9,7 @@ class trim:
 
         # parse the document and take quality 
         for i in range (0, len (self.fastq), 4):
-            posible_cuts = list ()
+            #posible_cuts = list ()
 
             id = self.fastq [i]
             sep = self.fastq [i+2]
@@ -17,8 +17,8 @@ class trim:
             window_phre_score = list (map (lambda letter: ord (letter)-33 , sec_quality [:window_size]))
             #print (window_phre_score)
             #print (sec_quality)
-            if sum (window_phre_score) /window_size < quality:
-                posible_cuts.append ((0, window_size-1))
+            #if sum (window_phre_score) /window_size < quality:
+             #   posible_cuts.append ((0, window_size-1))
 
             # we advance in the sec_quiality
             for ascii in range (5, len (sec_quality)):
