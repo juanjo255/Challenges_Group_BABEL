@@ -10,7 +10,7 @@ class trim:
 
             sec_quality = self.fastq [i+3].strip ()
             window_phre_score = list (map (lambda letter: ord (letter)-33 , sec_quality [:window_size]))
-            
+
             # we advance in the sec_quiality
             for ascii in range (5, len (sec_quality)):
                 del window_phre_score [0]
