@@ -20,5 +20,5 @@ class trim:
             # assess only the first sequence of the document
             break
 
-
+"UNFINISHED LACK OF TIME"
 trim ("test_sanger.fastq").window (5, 20)
