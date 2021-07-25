@@ -80,8 +80,18 @@ class ParseXsv:
         print ("")
         print (count)
         return
-
 file_path = sys.argv [1]
 if __name__ == "__main__":
-    print (sys.argv [0])
-    ParseXsv (file_path)
+    
+    obj = ParseXsv (file_path)
+    fn = sys.argv [2]
+    args = sys.argv [3:]
+
+    if fn == "select":
+        obj.retrieve_fields (args)
+    elif fn == "sum":
+        obj.sum_fields (args)
+    elif fn == "mean":
+        obj.mean_fields (args)
+    elif fn == "count":
+        obj.count_fields_values (args)
