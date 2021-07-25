@@ -8,9 +8,9 @@ class ParseXsv:
         self.headers = [i [1:-1] for i in self.file.readline ().split (sep)]
         self.body = [i.split(sep) for i in self.file.readlines ()]
     
-    def retrieve_fields (self, *args):
+    def retrieve_fields (self, list_args):
 
-        for field in args:
+        for field in list_args:
             if field in self.headers:
                 print (field)
                 index = self.headers.index (field)
@@ -26,10 +26,10 @@ class ParseXsv:
                 print (f"Este campo no existe {field}")
         return
     
-    def sum_fields (self, *args):
+    def sum_fields (self, list_args):
 
         final_sum = 0
-        for field in args:
+        for field in list_args:
             if field in self.headers:
                 print (field, end="\t")
                 index = self.headers.index (field)
@@ -43,11 +43,11 @@ class ParseXsv:
         print (final_sum)
         return
     
-    def mean_fields (self, *args):
+    def mean_fields (self, list_args):
 
         final_sum = 0
         total_values = 0
-        for field in args:
+        for field in list_args:
             if field in self.headers:
                 print (field, end="\t")
                 index = self.headers.index (field)
@@ -64,9 +64,9 @@ class ParseXsv:
         print (final_sum / total_values)
         return
     
-    def count_fields_values (self, *args):
+    def count_fields_values (self, list_args):
         count = 0
-        for field in args:
+        for field in list_args:
             if field in self.headers:
                 print (field, end="\t")
                 index = self.headers.index (field)
@@ -80,18 +80,17 @@ class ParseXsv:
         print ("")
         print (count)
         return
-file_path = sys.argv [1]
-if __name__ == "__main__":
-    
-    obj = ParseXsv (file_path)
-    fn = sys.argv [2]
-    args = sys.argv [3:]
 
-    if fn == "select":
-        obj.retrieve_fields (args)
-    elif fn == "sum":
-        obj.sum_fields (args)
-    elif fn == "mean":
-        obj.mean_fields (args)
-    elif fn == "count":
-        obj.count_fields_values (args)
+file_path = sys.argv [1]
+obj = ParseXsv (file_path)
+fn = sys.argv [2]
+args = sys.argv [3:]
+
+if fn == "select":
+    obj.retrieve_fields (args)
+elif fn == "sum":
+    obj.sum_fields (args)
+elif fn == "mean":
+    obj.mean_fields (args)
+elif fn == "count":
+    obj.count_fields_values (args)
