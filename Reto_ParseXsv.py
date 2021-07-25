@@ -1,3 +1,4 @@
+import sys
 class ParseXsv:
     def __init__(self, file_path) -> None:
         #sep = input ("¿Cuál es el delimitador? ->  ")
@@ -80,6 +81,7 @@ class ParseXsv:
         print (count)
         return
 
-file_path = "earthquakes(-2150-2021).tsv"
+file_path = sys.argv [1]
 if __name__ == "__main__":
+    print (sys.argv [0])
     ParseXsv (file_path)
