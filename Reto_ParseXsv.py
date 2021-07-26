@@ -35,8 +35,11 @@ class ParseXsv:
                 index = self.headers.index (field)
 
                 for i in self.body:
-                    if i [index].isnumeric () :
+                    try:
+                        float (i[index])
                         final_sum += float (i [index])
+                    except:
+                        continue
             else:
                 print (f"Este campo no existe {field}")
         print ("")
@@ -53,10 +56,12 @@ class ParseXsv:
                 index = self.headers.index (field)
 
                 for i in self.body:
-                    if i [index].isnumeric () :
+                    try:
+                        float (i[index])
                         final_sum += float (i [index])
-                    elif i [index].isspace () or not (i [index]) == "N.A." or i[index]:
-                        continue
+                    except:
+                        if i [index].isspace () or not (i [index]) == "N.A." or i[index]:
+                            continue
                     total_values += 1
             else:
                 print (f"Este campo no existe {field}")
@@ -72,7 +77,7 @@ class ParseXsv:
                 index = self.headers.index (field)
 
                 for i in self.body:
-                    if not (i [index]) or i [index].isspace ():
+                    if i [index] == "" or i [index].isspace ():
                         continue
                     count += 1
             else:
