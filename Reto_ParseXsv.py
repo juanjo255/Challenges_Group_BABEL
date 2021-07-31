@@ -1,16 +1,15 @@
 import sys
 class ParseXsv:
-    def __init__(self, file_path) -> None:
+    def __init__(self, file_path, sep) -> None:
         #sep = input ("¿Cuál es el delimitador? ->  ")
         print ("Bienvenido al parseador de Xcsv")
-        sep ="\t"
         self.file = open (file_path)
         self.headers = [i [1:-1] for i in self.file.readline ().split (sep)]
         self.body = [i.split(sep) for i in self.file.readlines ()]
     
     def retrieve_fields (self, list_args):
-
         for field in list_args:
+            field = field.strip ()
             if field in self.headers:
                 print (field)
                 index = self.headers.index (field)
@@ -30,6 +29,7 @@ class ParseXsv:
 
         final_sum = 0
         for field in list_args:
+            field = field.strip ()
             if field in self.headers:
                 print (field, end="\t")
                 index = self.headers.index (field)
@@ -51,6 +51,7 @@ class ParseXsv:
         final_sum = 0
         total_values = 0
         for field in list_args:
+            field = field.strip ()
             if field in self.headers:
                 print (field, end="\t")
                 index = self.headers.index (field)
@@ -72,6 +73,7 @@ class ParseXsv:
     def count_fields_values (self, list_args):
         count = 0
         for field in list_args:
+            field = field.strip ()
             if field in self.headers:
                 print (field, end="\t")
                 index = self.headers.index (field)
@@ -86,16 +88,21 @@ class ParseXsv:
         print (count)
         return
 
+sep = input ("what is the document separator? -> ")
 file_path = sys.argv [1]
-obj = ParseXsv (file_path)
+obj = ParseXsv (file_path, sep)
 fn = sys.argv [2]
-args = sys.argv [3:]
+args = sys.argv [3].split (",")
 
 if fn == "select":
+    print ("select")
     obj.retrieve_fields (args)
 elif fn == "sum":
+    print ("sum")
     obj.sum_fields (args)
 elif fn == "mean":
+    print ("mean")
     obj.mean_fields (args)
 elif fn == "count":
+    print ("count")
     obj.count_fields_values (args)
